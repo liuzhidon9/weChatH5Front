@@ -1,0 +1,23 @@
+{
+  "name": "dingdingH5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node proxy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "crypto-js": "^4.0.0",
+    "dingtalk-jsapi": "^2.13.9",
+    "parcel-bundler": "^1.12.4",
+    "parcel-proxy-server": "^1.1.0"
+  },
+  "devDependencies": {
+    "portfinder": "^1.0.28"
+  }
+}
