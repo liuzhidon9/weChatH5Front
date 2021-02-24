@@ -1,5 +1,5 @@
 {
-  "name": "dingdingH5",
+  "name": "weChatFront",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,17 +7,26 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node proxy.js"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "crypto-js": "^4.0.0",
-    "dingtalk-jsapi": "^2.13.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "parcel-bundler": "^1.12.4",
     "parcel-proxy-server": "^1.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.1",
     "portfinder": "^1.0.28"
   }
 }
