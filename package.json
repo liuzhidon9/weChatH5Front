@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",
+    "@babel/plugin-transform-runtime": "^7.13.7",
     "portfinder": "^1.0.28"
   }
 }
