@@ -1,15 +1,15 @@
 console.log(wx);
 let corpid = 'wwce6bed30204e09a9'
-let agentid = '1000009'
+let agentid = 1000011
 import axios from "axios"
-
+console.log('agentidxxx',agentid);
 
 
 async function start() {
 
     let url = window.location.href
     console.log('url',url);
-    let ConfigSignRes = await axios.get("http://wechatdemo.vaiwan.com/getConfigSign", { params: { url:url } })
+    let ConfigSignRes = await axios.get("https://ds.donviewcloud.net/wechat-h5-backend/getConfigSign", { params: { url:url } })
     let config = ConfigSignRes.data
     let signature = config.signature
     let timestamp = config.timestamp
@@ -33,13 +33,14 @@ async function start() {
     wx.ready(async function () {
         // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
         console.log('ready',url);
-        let agentConfigRes = await axios.get('http://wechatdemo.vaiwan.com/getAgentConfigSign', { params: {url:url} })
+        let agentConfigRes = await axios.get('https://ds.donviewcloud.net/wechat-h5-backend/getAgentConfigSign', { params: {url:url} })
         let agentConfig = agentConfigRes.data
         signature = agentConfig.signature
         timestamp = agentConfig.timestamp
         noncestr = agentConfig.noncestr
         corpid = agentConfig.corpid
         console.log('agentConfig',agentConfig);
+        console.log('agentid',agentid);
         wx.agentConfig({
             corpid: corpid, // 必填，企业微信的corpid，必须与当前登录的企业一致
             agentid: agentid, // 必填，企业微信的应用id （e.g. 1000247）

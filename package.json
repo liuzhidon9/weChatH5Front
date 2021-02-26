@@ -1,11 +1,14 @@
 {
   "name": "weChatFront",
   "version": "1.0.0",
-  "description": "",
+  "description": "test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node proxy.js"
+    "start": "node proxy.js",
+    "build": "parcel build index.html --public-url /wechat-h5",
+    "build-docker":"node ./scripts/build-docker.js",
+    "deploy":"node ./scripts/deploy.js"
   },
   "babel": {
     "presets": [
@@ -22,8 +25,11 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "js-yaml": "^4.0.0",
+    "parcel": "^1.12.4",
     "parcel-bundler": "^1.12.4",
-    "parcel-proxy-server": "^1.1.0"
+    "parcel-proxy-server": "^1.1.0",
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",

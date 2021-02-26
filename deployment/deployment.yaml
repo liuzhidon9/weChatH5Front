@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wechat-h5-frontend
+  namespace: three-class
+spec:
+  selector:
+    matchLabels:
+      app: wechat-h5-frontend
+  template:
+    metadata:
+      labels:
+        app: wechat-h5-frontend
+    spec:
+      containers:
+        - name: wechat-h5-fronted
+          image: DOCKER_REGISTRY/donviewclass-wechat-h5-frontend:DOCKER_IMAGE_TAG
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: "50m"
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: iclasssecret
+      
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJ1aHViLnNlcnZpY2UudWNsb3VkLmNuIjp7InVzZXJuYW1lIjoiMjI4MzUxMjA3MkBxcS5jb20iLCJwYXNzd29yZCI6ImljbGFzc2RvY2tlciIsImF1dGgiOiJNakk0TXpVeE1qQTNNa0J4Y1M1amIyMDZhV05zWVhOelpHOWphMlZ5In19fQ==
+    #{"auths":{"uhub.service.ucloud.cn":{"username":"2283512072@qq.com","password":"iclassdocker","auth":"MjI4MzUxMjA3MkBxcS5jb206aWNsYXNzZG9ja2Vy"}}}
+kind: Secret
+metadata:
+  name: iclasssecret
+  namespace: three-class
+type: kubernetes.io/dockerconfigjson
